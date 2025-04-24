@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .semaforo { display: flex; flex-direction: column; align-items: center; margin-top: 20px; }
+        .luz { width: 50px; height: 50px; border-radius: 50%; background: gray; margin: 5px; }
+        .rojo { background: red; }
+        .amarillo { background: yellow; }
+        .verde { background: green; }
+    </style>
+</head>
+<body>
+    <h1>Semáforo</h1>
+    <div class="semaforo">
+        <div id="rojo" class="luz"></div>
+        <div id="amarillo" class="luz"></div>
+        <div id="verde" class="luz"></div>
+    </div>
+    <button onclick="iniciarSemaforo()">Encender</button>
+    <button onclick="detenerSemaforo()">Apagar</button>
+    <p id="mensaje"></p>
+    
+    <script>
+        let luces = ["rojo", "amarillo", "verde"];
+        let mensajes = { "rojo": "Detenerse", "amarillo": "Prepararse", "verde": "Avanzar" };
+        let index = 0, intervalo = null;
+
+        function cambiarLuz() {
+            document.querySelectorAll(".luz").forEach(luz => luz.classList.remove("rojo", "amarillo", "verde"));
+            document.getElementById(luces[index]).classList.add(luces[index]);
+            document.getElementById("mensaje").innerText = mensajes[luces[index]];
+            index = (index + 1) % luces.length;
+        }
+
+        function iniciarSemaforo() {
+            if (!intervalo) {
+                cambiarLuz();
+                intervalo = setInterval(cambiarLuz, 2000);
+            }
+        }
+
+        function detenerSemaforo() {
+            if (intervalo) {
+                clearInterval(intervalo);
+                intervalo = null;
+                document.querySelectorAll(".luz").forEach(luz => luz.classList.remove("rojo", "amarillo", "verde"));
+                document.getElementById("mensaje").innerText = "Semáforo apagado.";
+            }
+        }
+    </script>
+</body>
+</html>

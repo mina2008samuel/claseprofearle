@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: radial-gradient(circle, #ff0000, #000);
+    background-size: 400% 400%;
+    animation: fondo-fluctuante 6s infinite ease-in-out;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+@keyframes fondo-fluctuante {
+    0% {
+        background-position: 50% 50%;
+    }
+    50% {
+        background-position: 30% 70%;
+    }
+    100% {
+        background-position: 70% 30%;
+    }
+}
+
+#game-container {
+    width: 500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 3px solid #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    padding: 20px;
+}
+
+.table-container {
+    margin-top: 20px;
+    border: 2px solid #111;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: block;
+    width: 100%;
+    max-width: 400px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #111;
+}
+
+.table-container th, .table-container td {
+    padding: 10px;
+    border: 1px solid #111;
+    text-align: center;
+    color: white;
+}
+
+.table-container th {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#reiniciar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#reiniciar:hover {
+    background-color: #cc0000;
+}
