@@ -1,5 +1,4 @@
-const greet = (name: string): string => { 
-      return `Hello, ${name}!`; 
-     }; 
-      
-    console.log(greet("World"));
+import { TOTAL_HABITACIONES } from "./hotelarrays";
+import { ocupaciones } from "./hotelarrays";
+import { reservas } from "./hotelarrays";
+import { liberar } from "./hotelarrays";
