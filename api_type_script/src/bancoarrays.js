@@ -1,4 +1,4 @@
-"use strict";
+-"use strict";
 let saldo = 1000;
 let transacciones = [];
 const registrarTransaccion = (tipo, monto) => {
